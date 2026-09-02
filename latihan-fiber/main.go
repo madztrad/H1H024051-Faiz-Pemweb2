@@ -18,5 +18,12 @@ func main() {
 			"status":   "berjalan",
 		})
 	})
+	app.Get("/api/mahasiswa", func(c fiber.Ctx) error {
+		return c.JSON(fiber.Map{
+			"nama":          "Muhammad Faiz Mubarok",
+			"nim":           "H1H024051",
+			"program studi": "teknik komputer",
+		})
+	})
 	log.Fatal(app.Listen(":3000"))
 }
