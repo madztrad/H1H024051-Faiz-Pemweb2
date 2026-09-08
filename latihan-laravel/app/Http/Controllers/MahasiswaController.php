@@ -1,16 +1,33 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
+use Illuminate\Routing\Controller;
+
 class MahasiswaController extends Controller
 {
-    function index()
+    public function index()
     {
-        $response = Http::get('http://127.0.0.1:3000/api/mahasiswa');
-        $mahasiswa = $response->json();
+        $daftarMahasiswa = [
+            ['nim' => 'H1A123001', 'nama' => 'Andi Prasetyo', 'angkatan' => 2023],
+            ['nim' => 'H1A123002', 'nama' => 'Bunga Lestari', 'angkatan' => 2023],
+            ['nim' => 'H1A123003', 'nama' => 'Citra Ramadhani', 'angkatan' => 2024],
+        ];
 
-        return view('mahasiswa', compact('mahasiswa'));
+        return view('mahasiswa.index', ['daftarMahasiswa' => $daftarMahasiswa]);
     }
+
+    public function show(string $nim)
+    {
+        return view('mahasiswa.show', ['nim' => $nim]);
+    }
+    public function cari(Request $request)
+{
+$kataKunci = $request->query('q', '');
+return response()->json([
+'kata_kunci' => $kataKunci,
+'metode' => $request->method(),
+'path' => $request->path(),
+]);
+}
 }
