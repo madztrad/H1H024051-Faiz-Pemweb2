@@ -1,3 +1,5 @@
-<div>
-    <!-- If you do not have a consistent goal in life, you can not live it in a consistent way. - Marcus Aurelius -->
-</div>
+@if ($sks < 3)
+    <span class="badge bg-warning text-dark">{{ $sks }} SKS</span>
+@else
+    <span class="badge bg-success">{{ $sks }} SKS</span>
+@endif
