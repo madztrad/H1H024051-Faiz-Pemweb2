@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 Use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\MatakuliahController;
+use App\Http\Controllers\MahasiswaWebController;    
+
 Route::get('/', [MahasiswaController::class, 'index']);
 Route::get('/salam', function () {
 return 'Selamat datang di Pemrograman Web II';
@@ -29,3 +31,5 @@ Route::get('/data-matakuliah', [MatakuliahController::class,
 Route::get('/data-matakuliah/{kode}', [MatakuliahController::class,
 'show'])->name('matakuliah.show');
 Route::get('/cari-matakuliah', [MatakuliahController::class,    'cari']);   
+Route::get('/mahasiswa-data', [MahasiswaWebController::class,    'index'])->name('mahasiswa.data');   
+
