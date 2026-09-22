@@ -32,4 +32,5 @@ Route::get('/data-matakuliah/{kode}', [MatakuliahController::class,
 'show'])->name('matakuliah.show');
 Route::get('/cari-matakuliah', [MatakuliahController::class,    'cari']);   
 Route::get('/mahasiswa-data', [MahasiswaWebController::class,    'index'])->name('mahasiswa.data');   
+Route::get('/mahasiswa-data/{mahasiswa}', [MahasiswaWebController::class, 'show'])->name('mahasiswa.detail');
 

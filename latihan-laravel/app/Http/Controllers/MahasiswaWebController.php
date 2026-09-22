@@ -50,10 +50,13 @@ mahasiswa berhasil disimpan');
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-        //
-    }
+    public function show(Mahasiswa $mahasiswa)
+{
+
+    $mahasiswa->load('programStudi', 'matakuliah');
+
+    return view('mahasiswa.detail', ['mahasiswa' => $mahasiswa]);
+}
 
     /**
      * Show the form for editing the specified resource.

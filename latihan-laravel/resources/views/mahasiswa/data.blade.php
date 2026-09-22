@@ -23,6 +23,8 @@
                     <td>{{ $mahasiswa->programStudi->nama }}</td> 
                     <td>{{ $mahasiswa->angkatan }}</td> 
                     <td>{{ $mahasiswa->ipk }}</td> 
+                    <td> 
+                        <a href="{{ route('mahasiswa.detail', $mahasiswa->id) }}" class="btn btn-primary btn-sm">Detail</a>
                 </tr> 
             @endforeach 
         </tbody> 
