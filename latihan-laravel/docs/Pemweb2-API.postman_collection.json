@@ -1,0 +1,159 @@
+{
+  "info": {
+    "name": "Pemweb2 API",
+    "description": "Koleksi pengujian Modul 4: RESTful API Laravel 13 (mahasiswa, matakuliah, program studi).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000/api"
+    }
+  ],
+  "item": [
+    {
+      "name": "Status",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Accept", "value": "application/json" }],
+        "url": "{{base_url}}/status"
+      }
+    },
+    {
+      "name": "Mahasiswa",
+      "item": [
+        {
+          "name": "List",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": "{{base_url}}/mahasiswa?per_halaman=10"
+          }
+        },
+        {
+          "name": "List filter + sort",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": "{{base_url}}/mahasiswa?angkatan=2023&per_halaman=5&urut=ipk&arah=desc"
+          }
+        },
+        {
+          "name": "List fields",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": "{{base_url}}/mahasiswa?fields=nim,nama,ipk&per_halaman=2"
+          }
+        },
+        {
+          "name": "Create",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"program_studi_id\": 1,\n  \"nim\": \"H1A125999\",\n  \"nama\": \"Dewi Anggraini\",\n  \"email\": \"dewi.anggraini@example.com\",\n  \"angkatan\": 2025,\n  \"ipk\": 3.65\n}"
+            },
+            "url": "{{base_url}}/mahasiswa"
+          }
+        },
+        {
+          "name": "Show",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": "{{base_url}}/mahasiswa/1"
+          }
+        },
+        {
+          "name": "Update",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": { "mode": "raw", "raw": "{\n  \"ipk\": 3.90\n}" },
+            "url": "{{base_url}}/mahasiswa/1"
+          }
+        },
+        {
+          "name": "Delete",
+          "request": {
+            "method": "DELETE",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": "{{base_url}}/mahasiswa/1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Matakuliah",
+      "item": [
+        {
+          "name": "List",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": "{{base_url}}/matakuliah?per_halaman=10"
+          }
+        },
+        {
+          "name": "Create",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"kode\": \"IF401\",\n  \"nama\": \"Pemrograman Web II\",\n  \"sks\": 3,\n  \"semester\": 4\n}"
+            },
+            "url": "{{base_url}}/matakuliah"
+          }
+        },
+        {
+          "name": "Show",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": "{{base_url}}/matakuliah/1"
+          }
+        },
+        {
+          "name": "Update",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": { "mode": "raw", "raw": "{\n  \"sks\": 4\n}" },
+            "url": "{{base_url}}/matakuliah/1"
+          }
+        },
+        {
+          "name": "Delete",
+          "request": {
+            "method": "DELETE",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": "{{base_url}}/matakuliah/1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Program Studi Mahasiswa",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Accept", "value": "application/json" }],
+        "url": "{{base_url}}/program-studi/1/mahasiswa?per_halaman=10"
+      }
+    }
+  ]
+}
