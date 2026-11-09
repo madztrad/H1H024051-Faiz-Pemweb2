@@ -17,6 +17,8 @@ return c.JSON(fiber.Map{
 mahasiswa := api.Group("/mahasiswa")
 mahasiswa.Use(middleware.KunciApi())
 mahasiswa.Get("/", handler.DaftarMahasiswa)
-mahasiswa.Get("/nim/:nim", handler.CariNim)
+mahasiswa.Post("/", handler.BuatMahasiswa)
 mahasiswa.Get("/:id", handler.DetailMahasiswa)
+mahasiswa.Put("/:id", handler.PerbaruiMahasiswa)
+mahasiswa.Delete("/:id", handler.HapusMahasiswa)
 }

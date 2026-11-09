@@ -1,0 +1,10 @@
+modul/
+
+# Dokumentasi & laporan (latihan-fiber/docs)
+latihan-fiber/docs/
+
+# Dokumen pribadi
+latihan-fiber/CV_NOC_Freelance.md
+
+# Sistem
+.DS_Store
