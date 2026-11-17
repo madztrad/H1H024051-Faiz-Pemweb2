@@ -1,0 +1,707 @@
+:root {
+  --tinta: #16241f;
+  --tinta-lembut: #5d6b64;
+  --garis: #dfe3dd;
+  --latar: #f5f4f0;
+  --permukaan: #ffffff;
+  --hijau: #14483a;
+  --hijau-terang: #1c6b54;
+  --krem: #eee9dd;
+  --bahaya: #a63a2b;
+  --bahaya-lembut: #f8e8e4;
+  --bayang: 0 18px 40px rgba(22, 36, 31, 0.08);
+  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+  color: var(--tinta);
+  background: var(--latar);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 88% 4%, rgba(20, 72, 58, 0.07), transparent 28rem),
+    var(--latar);
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1,
+h2 {
+  font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+h1 {
+  font-size: 2rem;
+  line-height: 1.15;
+}
+
+h2 {
+  font-size: 1.3rem;
+  line-height: 1.25;
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 0.68rem 0.8rem;
+  border: 1px solid var(--garis);
+  border-radius: 8px;
+  background: var(--permukaan);
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--hijau-terang);
+  box-shadow: 0 0 0 3px rgba(28, 107, 84, 0.12);
+}
+
+input::placeholder {
+  color: #9aa39d;
+}
+
+label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--tinta-lembut);
+}
+
+.label-kecil {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--hijau-terang);
+}
+
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.86em;
+}
+
+/* ---------- halaman login ---------- */
+.halaman-login {
+  display: grid;
+  grid-template-columns: minmax(0, 1.06fr) minmax(0, 0.94fr);
+  min-height: 100vh;
+}
+
+.panel-merek {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.1rem;
+  padding: 5rem clamp(2rem, 7vw, 7rem);
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.09), transparent 18rem),
+    linear-gradient(145deg, #103d31, #14483a 45%, #0d2e25);
+  color: #f4f1e8;
+}
+
+.panel-merek .label-kecil {
+  color: #c9b98f;
+}
+
+.panel-merek h1 {
+  max-width: 21ch;
+  font-size: clamp(2.1rem, 3.6vw, 3.2rem);
+}
+
+.keterangan-merek {
+  max-width: 38ch;
+  line-height: 1.65;
+  color: rgba(244, 241, 232, 0.72);
+}
+
+.lambang {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  margin-bottom: 0.6rem;
+  border: 1px solid rgba(244, 241, 232, 0.4);
+  border-radius: 14px;
+  font-family: 'Iowan Old Style', Georgia, serif;
+  font-size: 1.8rem;
+  color: #f0e6cf;
+}
+
+.lencana-backend {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid rgba(201, 185, 143, 0.45);
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #e8ddc0;
+}
+
+.panel-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.6rem;
+  padding: 4rem clamp(1.5rem, 6vw, 5rem);
+  background: var(--permukaan);
+}
+
+.kepala-form h2 {
+  margin: 0.4rem 0 0.5rem;
+  font-size: 2rem;
+}
+
+.kepala-form p:last-child {
+  color: var(--tinta-lembut);
+  line-height: 1.55;
+}
+
+.form-login {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.form-login input {
+  margin-bottom: 0.7rem;
+}
+
+.tombol-utama,
+.tombol-sekunder,
+.tombol-bahaya {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.68rem 1.1rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+}
+
+.tombol-utama {
+  background: var(--hijau);
+  color: #f7f4ea;
+}
+
+.tombol-utama:hover:not(:disabled) {
+  background: var(--hijau-terang);
+}
+
+.tombol-utama:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.tombol-sekunder {
+  background: var(--permukaan);
+  border-color: var(--garis);
+  color: var(--tinta);
+}
+
+.tombol-sekunder:hover:not(:disabled) {
+  border-color: #b9c2ba;
+  background: #fafaf7;
+}
+
+.tombol-bahaya {
+  background: var(--bahaya);
+  color: #fff7f4;
+}
+
+.tombol-bahaya:hover:not(:disabled) {
+  background: #8e2f22;
+}
+
+.form-login .tombol-utama {
+  margin-top: 0.4rem;
+  padding: 0.8rem;
+}
+
+.catatan-kaki {
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--garis);
+  font-size: 0.78rem;
+  line-height: 1.55;
+  color: var(--tinta-lembut);
+}
+
+.kotak-galat {
+  padding: 0.75rem 0.9rem;
+  border: 1px solid #ecc8bf;
+  border-left: 3px solid var(--bahaya);
+  border-radius: 6px;
+  background: var(--bahaya-lembut);
+  color: #7d2b1f;
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+/* ---------- tata letak aplikasi ---------- */
+.tata-letak {
+  min-height: 100vh;
+}
+
+.bilah-atas {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem clamp(1rem, 4vw, 3rem);
+  border-bottom: 1px solid var(--garis);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+}
+
+.merek {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.merek strong {
+  display: block;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+}
+
+.merek small {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--tinta-lembut);
+}
+
+.lambang-kecil {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: var(--hijau);
+  color: #f0e6cf;
+  font-family: 'Iowan Old Style', Georgia, serif;
+  font-size: 1.15rem;
+}
+
+.info-pengguna {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.82rem;
+}
+
+.info-pengguna .lencana-backend {
+  border-color: var(--garis);
+  background: var(--krem);
+  color: var(--hijau);
+  text-transform: capitalize;
+}
+
+.identitas {
+  color: var(--tinta-lembut);
+}
+
+.identitas small {
+  margin-left: 0.3rem;
+  padding: 0.12rem 0.4rem;
+  border-radius: 4px;
+  background: var(--krem);
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--hijau);
+}
+
+.tombol-teks {
+  padding: 0.35rem 0.2rem;
+  border: 0;
+  background: none;
+  color: var(--bahaya);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.tombol-teks:hover {
+  text-decoration: underline;
+}
+
+.isi-halaman {
+  width: min(1180px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2.4rem 0 4rem;
+}
+
+.kepala-halaman {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.kepala-halaman h1 {
+  margin: 0.3rem 0 0.35rem;
+}
+
+.keterangan {
+  font-size: 0.86rem;
+  color: var(--tinta-lembut);
+}
+
+/* ---------- kartu formulir ---------- */
+.kartu-form,
+.kartu-daftar {
+  border: 1px solid var(--garis);
+  border-radius: 14px;
+  background: var(--permukaan);
+  box-shadow: var(--bayang);
+}
+
+.kartu-form {
+  margin-bottom: 1.4rem;
+  padding: 1.5rem;
+}
+
+.kepala-kartu {
+  margin-bottom: 1.2rem;
+}
+
+.kepala-kartu h2 {
+  margin-bottom: 0.2rem;
+}
+
+.kepala-kartu p {
+  font-size: 0.84rem;
+  color: var(--tinta-lembut);
+}
+
+.kartu-form .kotak-galat {
+  margin-bottom: 1rem;
+}
+
+.form-mahasiswa {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem 1.1rem;
+}
+
+.kolom-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.kolom-penuh {
+  grid-column: 1 / -1;
+}
+
+.galat-field {
+  font-size: 0.76rem;
+  color: var(--bahaya);
+}
+
+.pilihan-aktif {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  color: var(--tinta);
+}
+
+.pilihan-aktif input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--hijau);
+}
+
+.aksi-form {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  padding-top: 0.3rem;
+}
+
+/* ---------- tabel ---------- */
+.kartu-daftar {
+  overflow: hidden;
+}
+
+.alat-daftar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.4rem;
+  border-bottom: 1px solid var(--garis);
+}
+
+.kolom-cari {
+  max-width: 320px;
+  padding: 0.55rem 0.75rem;
+}
+
+.status-muat {
+  font-size: 0.78rem;
+  color: var(--tinta-lembut);
+}
+
+.kartu-daftar .kotak-galat {
+  margin: 1rem 1.4rem;
+}
+
+.pembungkus-tabel {
+  overflow-x: auto;
+}
+
+.tabel-mahasiswa {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+}
+
+.tabel-mahasiswa th {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid var(--garis);
+  background: #faf9f6;
+  text-align: left;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--tinta-lembut);
+  white-space: nowrap;
+}
+
+.tabel-mahasiswa td {
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid #eef0ec;
+  vertical-align: middle;
+}
+
+.tabel-mahasiswa tbody tr:hover {
+  background: #fbfaf6;
+}
+
+.tabel-mahasiswa tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.rata-kanan {
+  text-align: right;
+}
+
+.nama-mahasiswa {
+  display: block;
+  font-weight: 600;
+}
+
+.email-mahasiswa {
+  display: block;
+  margin-top: 0.1rem;
+  font-size: 0.74rem;
+  color: var(--tinta-lembut);
+}
+
+.pil {
+  display: inline-block;
+  padding: 0.18rem 0.5rem;
+  border-radius: 999px;
+  background: #eceae4;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--tinta-lembut);
+}
+
+.pil-aktif {
+  background: #e3efe9;
+  color: #1c6b54;
+}
+
+.tombol-hapus {
+  padding: 0.3rem 0.55rem;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: none;
+  color: var(--bahaya);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.tombol-hapus:hover {
+  border-color: #ecc8bf;
+  background: var(--bahaya-lembut);
+}
+
+.keadaan-kosong {
+  padding: 3rem 1rem;
+  text-align: center;
+  color: var(--tinta-lembut);
+}
+
+.keadaan-kosong p {
+  font-weight: 600;
+  color: var(--tinta);
+}
+
+.keadaan-kosong span {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.82rem;
+}
+
+.kaki-tabel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1.4rem;
+  border-top: 1px solid var(--garis);
+  background: #faf9f6;
+  font-size: 0.8rem;
+  color: var(--tinta-lembut);
+}
+
+.tombol-halaman {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.tombol-halaman .tombol-sekunder {
+  padding: 0.4rem 0.75rem;
+  font-size: 0.8rem;
+}
+
+/* ---------- modal ---------- */
+.lapisan-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(16, 30, 25, 0.45);
+  backdrop-filter: blur(2px);
+}
+
+.modal {
+  width: min(440px, 100%);
+  padding: 1.6rem;
+  border-radius: 14px;
+  background: var(--permukaan);
+  box-shadow: 0 24px 60px rgba(16, 30, 25, 0.25);
+}
+
+.modal h2 {
+  margin-bottom: 0.6rem;
+}
+
+.modal p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--tinta-lembut);
+}
+
+.aksi-modal {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  margin-top: 1.4rem;
+}
+
+@media (max-width: 900px) {
+  .halaman-login {
+    grid-template-columns: 1fr;
+  }
+
+  .panel-merek {
+    padding: 3rem 1.5rem;
+  }
+
+  .panel-merek h1 {
+    font-size: 2rem;
+  }
+
+  .panel-form {
+    padding: 2.5rem 1.5rem 3rem;
+  }
+
+  .form-mahasiswa {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .info-pengguna .identitas {
+    display: none;
+  }
+}
+
+@media (max-width: 620px) {
+  .kepala-halaman,
+  .alat-daftar,
+  .kaki-tabel {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .kepala-halaman {
+    align-items: flex-start;
+  }
+
+  .form-mahasiswa {
+    grid-template-columns: 1fr;
+  }
+
+  .info-pengguna .lencana-backend {
+    display: none;
+  }
+
+  .tabel-mahasiswa th:nth-child(3),
+  .tabel-mahasiswa td:nth-child(3),
+  .tabel-mahasiswa th:nth-child(4),
+  .tabel-mahasiswa td:nth-child(4) {
+    display: none;
+  }
+}
